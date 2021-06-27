@@ -14,11 +14,19 @@ namespace CSharpAzureQuiz.Models
     
     public partial class Question
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Question()
+        {
+            this.Users = new HashSet<User>();
+        }
+    
         public int QuestionId { get; set; }
         public string Question1 { get; set; }
         public string Topic { get; set; }
         public int AnswerID { get; set; }
     
         public virtual Answer Answer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<User> Users { get; set; }
     }
 }

@@ -13,10 +13,10 @@ namespace CSharpAzureQuiz.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QuizMananagement_DBEntities : DbContext
+    public partial class QuizMananagement_DBEntities1 : DbContext
     {
-        public QuizMananagement_DBEntities()
-            : base("name=QuizMananagement_DBEntities")
+        public QuizMananagement_DBEntities1()
+            : base("name=QuizMananagement_DBEntities1")
         {
         }
     
@@ -27,7 +27,6 @@ namespace CSharpAzureQuiz.Models
     
         public virtual DbSet<Answer> Answers { get; set; }
         public virtual DbSet<Question> Questions { get; set; }
-
-        public System.Data.Entity.DbSet<CSharpAzureQuiz.Models.User> Users { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }
