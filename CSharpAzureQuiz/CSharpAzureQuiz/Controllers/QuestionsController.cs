@@ -39,7 +39,7 @@ namespace CSharpAzureQuiz.Controllers
         // GET: Questions/Create
         public ActionResult Create()
         {
-            ViewBag.AnswerID = new SelectList(db.Answers, "AnswerID", "Answer1");
+            ViewBag.AnswerID = new SelectList(db.Answers, "AnswerID");
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace CSharpAzureQuiz.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QuestionId,Question1,Topic,AnswerID")] Question question)
+        public ActionResult Create([Bind(Include = "QuestionId,Question1,Topic")] Question question)
         {
             if (ModelState.IsValid)
             {
