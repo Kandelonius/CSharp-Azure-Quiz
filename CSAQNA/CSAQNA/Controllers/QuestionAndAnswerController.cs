@@ -31,6 +31,12 @@ namespace CSAQNA.Controllers
             return View();
         }
 
+        // POST: ShowSearchResults
+        public string ShowSearchResults(string SearchQuestion)
+        {
+            return "hello " + SearchQuestion;
+        }
+
         // GET: QuestionAndAnswers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
