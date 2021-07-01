@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CSAQNA.Data;
 using CSAQNA.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CSAQNA.Controllers
 {
@@ -32,9 +33,9 @@ namespace CSAQNA.Controllers
         }
 
         // POST: ShowSearchResults
-        public string ShowSearchResults(string SearchQuestion)
+        public async Task<IActionResult> ShowSearchResults(string SearchQuestion)
         {
-            return "hello " + SearchQuestion;
+            return View("Index", await _context.QuestionAndAnswer.Where( q => q.Question.Contains(SearchQuestion)).ToListAsync());
         }
 
         // GET: QuestionAndAnswers/Details/5
@@ -55,7 +56,9 @@ namespace CSAQNA.Controllers
             return View(questionAndAnswer);
         }
 
+        
         // GET: QuestionAndAnswers/Create
+        //[Authorize]
         public IActionResult Create()
         {
             return View();
