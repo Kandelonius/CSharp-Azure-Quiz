@@ -25,6 +25,12 @@ namespace CSAQNA.Controllers
             return View(await _context.QuestionAndAnswer.ToListAsync());
         }
 
+        // GET: ShowSearchForm
+        public async Task<IActionResult> ShowSearchForm()
+        {
+            return View();
+        }
+
         // GET: QuestionAndAnswers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
